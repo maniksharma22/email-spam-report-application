@@ -118,6 +118,7 @@ export default function App() {
     background: "linear-gradient(to bottom, #0f0f0f, #1a1a1a)",
     minHeight: "100vh",
     display: "flex",
+     width:"75%",
     justifyContent: "center",
     alignItems: "flex-start",
     fontFamily: "Poppins, sans-serif",
