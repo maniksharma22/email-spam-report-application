@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// 💡 NEW: Define the base URL from the environment variable
+// In development, this will be undefined, so we default it to localhost
+// On Render (Static Site), it will be the value of VITE_API_BASE_URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
+
 const Badge = ({ label }) => {
   const colors = {
     Inbox: { bg: "#16A34A20", color: "#16A34A" },
@@ -52,9 +57,11 @@ export default function App() {
     const fetchInboxes = async () => {
       setFetchingInboxes(true);
       try {
-        const res = await axios.get("http://localhost:4000/api/inboxes");
+        // ❌ FIX 1: Use API_BASE_URL instead of hard-coded localhost URL
+        const res = await axios.get(`${API_BASE_URL}/api/inboxes`);
         setInboxes(res.data.inboxes || []);
       } catch {
+        // You can keep this error message, but the fix should resolve it
         setError("Unable to load inbox list. Is backend running?");
       } finally {
         setFetchingInboxes(false);
@@ -77,8 +84,9 @@ export default function App() {
     setResults([]);
 
     try {
+      // ❌ FIX 2: Use API_BASE_URL instead of hard-coded localhost URL
       const res = await axios.get(
-        `http://localhost:4000/api/check-email?testCode=${encodeURIComponent(
+        `${API_BASE_URL}/api/check-email?testCode=${encodeURIComponent(
           testCode
         )}&userEmail=${encodeURIComponent(
           userEmail
@@ -104,6 +112,8 @@ export default function App() {
     }
   };
 
+  // ... (rest of the component remains the same)
+
   const containerStyle = {
     background: "linear-gradient(to bottom, #0f0f0f, #1a1a1a)",
     minHeight: "100vh",
@@ -117,6 +127,7 @@ export default function App() {
   const score = results.filter(r => r.folder === "Inbox").length;
   const total = results.length;
   const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
+
 
   // 🏠 Home Page
   if (view === "home") {
@@ -296,7 +307,7 @@ export default function App() {
           width: "75%",
           maxWidth: 900,
           background: "#111",
-          marginTop : 180,
+          marginTop: 180,
           borderRadius: 20,
           padding: 40,
           boxShadow: "0 10px 40px rgba(255,215,0,0.15)",
