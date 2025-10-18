@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> abe7a092347e85599797254f214dd7f353bbf285
+
 ﻿## Email Spam Report Tool
 This repository is for the Full Stack Developer Intern assignment: Email Spam Report Tool.
 
