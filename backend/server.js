@@ -21,24 +21,24 @@ app.get('/', (req, res) => {
 // Example test inboxes with Gmail refresh tokens
 const testInboxes = [
     {
-        email: "ms8883314@gmail.com",
-        refreshToken: "1//048ouFxddo8-nCgYIARAAGAQSNwF-L9IrEc6s5KHULFnZH-zb43dFky18vuXddUc2gQi6D9G4Dhq7yDiAKVm6XzbTqwgPLIn_ZD0"
+        email: "test1@gmail.com",
+        refreshToken: "abcde"
     },
     {
-        email: "madavsharma4545@gmail.com",
-        refreshToken: "1//04i1fAozWAOXjCgYIARAAGAQSNwF-L9Ir7pU12uYsihF1ZnNRsRL0H7fBA9GusYsoKM_GDbawa3MQdnhHHRmgtYb1BldMyizLHFE"
+        email: "test2@gmail.com",
+        refreshToken: "abcde"
     },
     {
-        email: "madavsharma2002@gmail.com",
-        refreshToken: "1//04-K1UZHiItbQCgYIARAAGAQSNwF-L9Ir-Q58U4pRE042O5hu-zzYgqBK2Q49-sKUBtEsYUL4gAhGq_wwku5Fc_SqhXri8T7pWIg"
+        email: "test3@gmail.com",
+        refreshToken: "abcde"
     },
     {
-        email: "maniksharma0325@gmail.com",
-        refreshToken: "1//04mCiCyM0xNHICgYIARAAGAQSNwF-L9Ird28Y9jNGlml1OCx4yFXRHLyMa5dWlX_JDeq_uqfJBhJcNEzp4TOr6MWLEJmVKBfjLhI"
+        email: "test4@gmail.com",
+        refreshToken: "abcde"
     },
     {
-        email: "ms8535731@gmail.com",
-        refreshToken: "1//04FrfoGHMW3t4CgYIARAAGAQSNwF-L9IrZsUkUhAw5WbmwHa2QFCLpPSjaHvHHp-comX-_PeJKc-Kq5Mu5c6rHpN8alPWZnhQzXo"
+        email: "test5@gmail.com",
+        refreshToken: "abcde"
     },
 ];
 
