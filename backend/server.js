@@ -7,11 +7,13 @@ const nodemailer = require("nodemailer");
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
+const HOST = '0.0.0.0'; // CRITICAL FIX: Required by Render
 
 app.use(express.json());
 
+// FIX 1: Set CORS origin dynamically using an Environment Variable
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: process.env.FRONTEND_URL
 }));
 
 app.get('/', (req, res) => {
@@ -55,18 +57,17 @@ async function checkGmail(inbox, testCode) {
 async function sendReportEmail(toEmail, report) {
     try {
         const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,           
-    secure: false,      
-    auth: {
-        user: process.env.EMAIL_USER,      
-        pass: process.env.EMAIL_APP_PASS  
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-});
-
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_APP_PASS
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
 
         const htmlContent = `
             <h2>Email Test Report</h2>
@@ -131,6 +132,7 @@ app.get("/api/inboxes", (req, res) => {
     res.json({ inboxes: inboxEmails });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+// FIX 2: Listen on 0.0.0.0
+app.listen(PORT, HOST, () => {
+    console.log(`Server running on http://${HOST}:${PORT}`);
 });
