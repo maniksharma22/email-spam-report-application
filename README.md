@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> abe7a092347e85599797254f214dd7f353bbf285
 ﻿## Email Spam Report Tool
 This repository is for the Full Stack Developer Intern assignment: Email Spam Report Tool.
 
@@ -70,6 +73,7 @@ This app can be deployed on Render
 
 
 
+<<<<<<< HEAD
 =======
 ﻿## Email Spam Report Tool
 This repository is for the Full Stack Developer Intern assignment: Email Spam Report Tool.
@@ -143,3 +147,6 @@ This app can be deployed on Render
 
 
 >>>>>>> e27301ddc634d4e5933d763e36ed9a84309f4c53
+=======
+
+>>>>>>> abe7a092347e85599797254f214dd7f353bbf285
